@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danu Effect</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    background:black;
+    font-family:Arial, sans-serif;
+}
+
+.text{
+    position:absolute;
+    color:#00ffcc;
+    font-weight:bold;
+    font-size:20px;
+    animation:fade 3s linear forwards;
+}
+
+@keyframes fade{
+    0%{opacity:1; transform:scale(1);}
+    100%{opacity:0; transform:scale(2);}
+}
+</style>
+</head>
+
+<body>
+
+<script>
+function spawnText(){
+    let text = document.createElement("div");
+    text.className = "text";
+    text.innerText = "DANU ANJENG YATEM";
+
+    text.style.left = Math.random() * window.innerWidth + "px";
+    text.style.top = Math.random() * window.innerHeight + "px";
+
+    document.body.appendChild(text);
+
+    setTimeout(()=>{
+        text.remove();
+    },3000);
+}
+
+// speed makin kecil = makin rame
+setInterval(spawnText, 50);
+</script>
+
+</body>
+</html>
